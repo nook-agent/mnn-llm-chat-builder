@@ -20,6 +20,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: alibaba/MNN
+          ref: 5b74a931887ba5b4d9f65b222cc18dd1a16599a8
           path: MNN
           fetch-depth: 1
 
@@ -29,6 +30,12 @@ jobs:
           xcodebuild -version
           xcodebuild -showsdks
           xcrun simctl list runtimes
+
+      - name: Verify and apply custom model support
+        run: |
+          cat custom_models/CustomModelCore.swift tests/CustomModelCoreTests.swift > /tmp/mnn-core-tests.swift
+          swift /tmp/mnn-core-tests.swift
+          python3 scripts/apply_custom_models.py MNN
 
       - name: Build MNN.framework
         working-directory: MNN
@@ -100,4 +107,4 @@ jobs:
           gh release create "$TAG" \
             MNN/apps/iOS/MNNLLMChat/build/MNNLLMChat.ipa \
             --title "MNNLLMChat iOS ($TAG)" \
-            --notes "Automated unsigned IPA build from alibaba/MNN (apps/iOS/MNNLLMChat). Ready for TrollStore, AltStore, SideStore, LiveContainer, Sideloadly, or manual signing."
+            --notes "Unsigned iOS build with global Hugging Face search, repository/folder URL downloads, and Files folder/multi-file import. Public MNN models only; unzip archives in Files before import. Source pinned to 5b74a931887ba5b4d9f65b222cc18dd1a16599a8. Requires signing; physical-device inference has not been verified."
