@@ -26,8 +26,8 @@ patch(vm, '        guard model.isDownloaded else { return }\n\n        do {',
       '''        guard model.isDownloaded else { return }
         if let key = model.sources?["custom"] {
             do {
-                try CustomModelFiles.remove(key)
-                await MainActor.run {
+                try await MainActor.run {
+                    try CustomModelFiles.remove(key)
                     self.models.removeAll { $0.id == model.id }
                     self.unpinModel(model)
                 }

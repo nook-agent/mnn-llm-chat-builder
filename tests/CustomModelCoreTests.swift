@@ -31,3 +31,18 @@ try Data("{}".utf8).write(to: stage.appendingPathComponent("config.json"))
 try FileManager.default.createSymbolicLink(atPath: stage.appendingPathComponent("unsafe").path, withDestinationPath: "/etc/passwd")
 expectFailure("symlink") { try CustomModelFiles.validate(stage) }
 print("All custom model core tests passed")
+
+// Exercise both Files import paths with ordinary local security-scoped URLs.
+try FileManager.default.removeItem(at: stage.appendingPathComponent("unsafe"))
+let folderCopy = try CustomModelFiles.staging()
+let filesCopy = try CustomModelFiles.staging()
+defer {
+    try? FileManager.default.removeItem(at: folderCopy)
+    try? FileManager.default.removeItem(at: filesCopy)
+}
+_ = try CustomModelFiles.copySelection([stage], to: folderCopy)
+try CustomModelFiles.validate(folderCopy)
+let selectedFiles = try FileManager.default.contentsOfDirectory(at: stage, includingPropertiesForKeys: nil)
+_ = try CustomModelFiles.copySelection(selectedFiles, to: filesCopy)
+try CustomModelFiles.validate(filesCopy)
+print("PASS folder and multi-file import")
