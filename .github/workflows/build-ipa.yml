@@ -35,6 +35,8 @@ jobs:
         run: |
           cat custom_models/CustomModelCore.swift tests/CustomModelCoreTests.swift > /tmp/mnn-core-tests.swift
           swift /tmp/mnn-core-tests.swift
+          cat custom_models/CustomModelCore.swift tests/HuggingFaceSmoke.swift > /tmp/mnn-hf-smoke.swift
+          swift /tmp/mnn-hf-smoke.swift
           python3 scripts/apply_custom_models.py MNN
 
       - name: Build MNN.framework
