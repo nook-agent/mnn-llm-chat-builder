@@ -24,3 +24,16 @@ physical-device inference is not validated by the build.
 new declarations to an existing compiled Swift unit (the upstream Xcode project
 uses explicit file references). Tests run before native builds. The workflow uploads
 an artifact and creates a release. Sign the IPA with your preferred sideload tool.
+
+## AltStore Classic / SideStore source
+
+Add this URL in Sources → +:
+
+https://raw.githubusercontent.com/nook-agent/mnn-llm-chat-builder/main/source.json
+
+The source points to the latest published custom build. Metadata (bundle ID,
+version, size, minimum iOS and privacy descriptions) is read from the real IPA by
+`scripts/generate_source.py`. Successful future builds update it automatically.
+This is an AltStore Classic / SideStore source, not an AltStore PAL marketplace.
+
+Icon: original Alibaba MNN app artwork from the pinned upstream revision.

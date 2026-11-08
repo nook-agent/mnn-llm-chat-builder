@@ -1,0 +1,49 @@
+{
+  "name": "Nook · MNN Chat",
+  "identifier": "io.github.nook-agent.mnn-llm-chat-builder",
+  "sourceURL": "https://raw.githubusercontent.com/nook-agent/mnn-llm-chat-builder/main/source.json",
+  "subtitle": "MNN Chat with Hugging Face search and model import",
+  "description": "Community build of Alibaba MNN Chat. Public MNN model downloads, Hugging Face search and Files import. Requires iOS 17 or later. For AltStore Classic and SideStore.",
+  "website": "https://github.com/nook-agent/mnn-llm-chat-builder",
+  "iconURL": "https://raw.githubusercontent.com/nook-agent/mnn-llm-chat-builder/main/assets/icon.png",
+  "tintColor": "#3877F4",
+  "apps": [
+    {
+      "name": "MNN Chat",
+      "bundleIdentifier": "com.taobao.mnnchat",
+      "developerName": "Alibaba MNN · nook-agent build",
+      "subtitle": "Local AI · Hugging Face · Files import",
+      "localizedDescription": "Run MNN language models locally on your iPhone or iPad. Includes global Hugging Face search, public model downloads by repository/folder URL, and import of unpacked model folders or selected files. Models are downloaded separately. Supports MNN LLM exports; GGUF and safetensors need conversion. Community modified build, not an official Alibaba release.",
+      "iconURL": "https://raw.githubusercontent.com/nook-agent/mnn-llm-chat-builder/main/assets/icon.png",
+      "tintColor": "#3877F4",
+      "versions": [
+        {
+          "version": "1.0.1",
+          "buildVersion": "1",
+          "date": "2026-11-08T14:00:55Z",
+          "localizedDescription": "Global Hugging Face search, public MNN model downloads by URL, and folder/multi-file import through Files.",
+          "downloadURL": "https://github.com/nook-agent/mnn-llm-chat-builder/releases/download/v0.5-build-6/MNNLLMChat.ipa",
+          "size": 16327397,
+          "minOSVersion": "17"
+        }
+      ],
+      "version": "1.0.1",
+      "versionDate": "2026-11-08T14:00:55Z",
+      "versionDescription": "Global Hugging Face search, public MNN model downloads by URL, and folder/multi-file import through Files.",
+      "downloadURL": "https://github.com/nook-agent/mnn-llm-chat-builder/releases/download/v0.5-build-6/MNNLLMChat.ipa",
+      "size": 16327397,
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {
+          "NSCameraUsageDescription": "We need access your camera to capture image or video",
+          "NSDocumentsFolderUsageDescription": "This app needs to access your documents to save downloaded models",
+          "NSLocalNetworkUsageDescription": "This app needs to access your local network to download models",
+          "NSMicrophoneUsageDescription": "We need use your mico to input voice",
+          "NSPhotoLibraryAddUsageDescription": "We need access your photo library to save images",
+          "NSPhotoLibraryUsageDescription": "We need access your photo library to select image"
+        }
+      }
+    }
+  ],
+  "news": []
+}
