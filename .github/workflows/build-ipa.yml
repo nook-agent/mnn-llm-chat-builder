@@ -11,7 +11,7 @@ permissions:
 jobs:
   build:
     name: Build iOS IPA
-    runs-on: macos-14
+    runs-on: macos-15
     steps:
       - name: Checkout Builder
         uses: actions/checkout@v4
